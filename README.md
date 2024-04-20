@@ -76,6 +76,8 @@ Chatting with other players using predefined commands:
 - **Server Address**: You can configure the server address and port in the `constants.js` file. Update `IP` and `PORT` to match your server's settings.
 
 - **Name Identifier**: In the `client.js` file, find the "Name: Som" line and replace "Som" with your initials or the first three letters of your name. (It only takes a maximum of 3 characters).
+
+- **Chat Commands**: You can update the message object in the `constants.js` file to include customized messages of your own.
   
 ## Dependencies
 
