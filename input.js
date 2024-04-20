@@ -1,3 +1,6 @@
+const { movement, message } = require("./constants");
+
+// Initialize a variable to be used later
 let connection;
 
 const handleUserInput = function (key) {
@@ -6,41 +9,18 @@ const handleUserInput = function (key) {
     process.exit();
   }
 
-  if (key === 'w' || key === "\u001b[A") {
-    connection.write('Move: up');
+  // If player presses a movement key, snake should move in the specified direction
+  if (movement[key]) {
+    connection.write(movement[key]);
   }
 
-  if (key === 'a' || key === "\u001b[D") {
-    connection.write('Move: left');
-  }
-
-  if (key === 's' || key === "\u001b[B") {
-    connection.write('Move: down');
-  }
-
-  if (key === 'd' || key === "\u001b[C") {
-    connection.write('Move: right');
-  }
-
-  if (key === 'h') {
-    connection.write('Say: Hello!');
-  }
-
-  if (key === 'i') {
-    connection.write('Say: I\'m doing well. You?');
-  }
-
-  if (key === 'q') {
-    connection.write('Say: How are you?');
-  }
-
-  if (key === 'y') {
-    connection.write('Say: Yes!');
+  // If player presses a special message key, display message on screen
+  if (message[key]) {
+    connection.write(message[key]);
   }
 };
 
 // setup interface to handle user input from stdin
-
 const setupInput = function (conn) {
   connection = conn;
 
